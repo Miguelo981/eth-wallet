@@ -1,0 +1,11 @@
+export type SupportedLang =
+  | 'english'
+  | 'spanish'
+  | 'french'
+  | 'italian'
+  | 'czech'
+  | 'japanese'
+  | 'korean'
+  | 'portuguese'
+  | 'traditional_chinese'
+  | 'simplified_chinese'
