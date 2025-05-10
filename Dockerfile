@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY package.json ./
 
+RUN npm i -g pnpm
+
 RUN pnpm i
 COPY . .
 RUN pnpm build
@@ -17,6 +19,8 @@ COPY --from=builder /app/pnpm-lock.yaml ./
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.js ./
+
+RUN npm i -g pnpm
 
 RUN pnpm i --prod --frozen-lockfile
 
