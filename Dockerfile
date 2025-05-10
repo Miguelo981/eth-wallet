@@ -1,6 +1,4 @@
-FROM node:18-alpine AS builder
-
-RUN corepack enable && corepack prepare pnpm@latest --activate
+FROM node:23-alpine AS builder
 
 WORKDIR /app
 
@@ -10,11 +8,9 @@ RUN pnpm i
 COPY . .
 RUN pnpm build
 
-FROM node:18-alpine AS runner
+FROM node:23-alpine AS runner
 
 WORKDIR /app
-
-RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/pnpm-lock.yaml ./
