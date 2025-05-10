@@ -4,9 +4,9 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
+COPY package.json ./
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm i
 COPY . .
 RUN pnpm build
 
@@ -22,7 +22,7 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.js ./
 
-RUN pnpm install --prod --frozen-lockfile
+RUN pnpm i --prod --frozen-lockfile
 
 ENV NODE_ENV=production
 ENV PORT=3000
