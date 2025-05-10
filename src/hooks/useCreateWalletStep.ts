@@ -8,12 +8,12 @@ export const useCreateWalletStep = () => {
     const next = useCallback(() => {
         const idx = CREATE_WALLET_STEPS.indexOf(step)
         if (idx < CREATE_WALLET_STEPS.length - 1) setStep(CREATE_WALLET_STEPS[idx + 1])
-    }, [CREATE_WALLET_STEPS, step])
+    }, [step])
 
     const back = useCallback(() => {
         const idx = CREATE_WALLET_STEPS.indexOf(step)
         if (idx > 0) setStep(CREATE_WALLET_STEPS[idx - 1])
-    }, [CREATE_WALLET_STEPS, step])
+    }, [step])
 
     return {
         step,

@@ -21,7 +21,7 @@ const UnlockWallet = () => {
 
         setPrivateKey(privateKey)
         push('/dashboard')
-    }, [setPrivateKey, password])
+    }, [setPrivateKey, password, push, unlock])
 
     return (
         <form className="flex flex-col h-full" onSubmit={unlockWallet}>

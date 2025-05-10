@@ -21,7 +21,7 @@ export const useCreateWallet = () => {
         passwordRepository.setStoredHashed(hashed)
         cryptoRepository.storeEncryptedKey(encrypted)
     
-    }, [walletRepository, passwordRepository, cryptoRepository, mnemonic, password])
+    }, [mnemonic, password])
 
     const words = useMemo(() => mnemonic.split(" "), [mnemonic])
 

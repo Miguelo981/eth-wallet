@@ -5,9 +5,9 @@ import { walletRepository } from "@/repositories/wallet-repository"
 export const useWalletClient = () => {
     const { privateKey } = usePrivateKeyStore()
 
-    const account = useMemo(() => walletRepository.getAccount(privateKey), [walletRepository, privateKey])
+    const account = useMemo(() => walletRepository.getAccount(privateKey), [privateKey])
 
-    const publicClient = useMemo(() => walletRepository.createClient(account), [walletRepository, account])
+    const publicClient = useMemo(() => walletRepository.createClient(account), [account])
 
     return {
         publicClient

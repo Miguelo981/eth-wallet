@@ -30,7 +30,7 @@ export const useUnlockWallet = () => {
 
         const privateKey = await cryptoRepository.decryptPrivateKey(encryptedKey, password)
         return privateKey
-    }, [walletRepository, passwordRepository, cryptoRepository])
+    }, [setError])
 
     return {
         unlock,
