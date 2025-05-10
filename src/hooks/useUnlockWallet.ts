@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react"
-import { walletRepository } from "@/repositories/wallet-repository"
 import { passwordRepository } from "@/repositories/password-repository"
 import { cryptoRepository } from "@/repositories/crypto-repository"
 import { Hex } from "viem"

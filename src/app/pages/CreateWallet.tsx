@@ -56,10 +56,10 @@ const CreateWallet = () => {
             className="h-full flex flex-col"
           >
             <h2 className="text-lg font-semibold">2. Are you sure?</h2>
-            <p>Save the phrase, it's the only way to recover your wallet.</p>
+            <p>Save the phrase, its the only way to recover your wallet.</p>
             
             <footer className="mt-auto space-y-3">
-              <Button onClick={back} className="w-full" variant="outline">No I don't</Button>
+              <Button onClick={back} className="w-full" variant="outline">No I dont</Button>
               <Button onClick={next} className="w-full">I am sure</Button>
             </footer>
           </motion.div>
