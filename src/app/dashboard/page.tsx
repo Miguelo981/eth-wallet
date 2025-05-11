@@ -10,7 +10,7 @@ export default function Dashboard() {
 
     if (!privateKey) {
         return (
-            <section className="max-w-xl mx-auto grid justify-items-center h-screen items-center">
+            <section className="max-w-xl mx-auto grid justify-items-center h-dvh items-center">
                 <div className="flex flex-col">
                     <h1 className="text-3xl font-black text-wrap max-w-[15rem] text-center mb-6">Please unlock your wallet first</h1>
 
@@ -23,7 +23,7 @@ export default function Dashboard() {
     }
 
     return (
-        <section className="max-w-sm mx-auto py-5 px-5 md:px-0 flex flex-col h-screen">
+        <section className="max-w-sm mx-auto py-5 px-5 md:px-0 flex flex-col h-dvh">
             <h1 className="text-2xl font-bold mb-6">Send Transaction</h1>
             <TransactionForm />
         </section>
