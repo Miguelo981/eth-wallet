@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react'
 import { parseEther, getAddress } from 'viem'
-import { useWalletClient } from '@/hooks/useWalletClient'
+import { useWallet } from '@/hooks/useWallet'
 
 export const useTransaction = () => {
-    const { publicClient } = useWalletClient()
+    const { publicClient } = useWallet()
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
