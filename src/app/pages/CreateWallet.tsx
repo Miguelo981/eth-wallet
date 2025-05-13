@@ -37,7 +37,7 @@ const CreateWallet = () => {
             <h2 className="text-lg font-semibold">1. Your seed phrase</h2>
             <div className="mt-4 bg-gray-100 p-4 rounded relative">
               <CopyButton className="absolute top-2 right-2" value={mnemonic} onCopy={() => setIsSeedCopied(true)} />
-              <SeedPhraseList className="space-y-3" words={words} />
+              <SeedPhraseList className="space-y-2.5" words={words} />
             </div>
 
             <footer className="mt-auto">
