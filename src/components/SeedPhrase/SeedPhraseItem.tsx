@@ -6,7 +6,7 @@ type SeedPhraseItemProps = {
 
 const SeedPhraseItem = ({ word }: SeedPhraseItemProps) => {
     return (
-        <Badge className="bg-violet-500 text-lg rounded-full">{word}</Badge>
+        <Badge className="bg-blue-500 text-base rounded-full">{word}</Badge>
     )
 }
 
