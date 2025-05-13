@@ -1,9 +1,11 @@
 "use client"
 
 import { usePrivateKeyStore } from "@/stores/usePrivateKeyStore"
-import TransactionForm from "@/app/pages/TransactionForm"
+import TransactionForm from "@/components/Transaction/TransactionForm"
 import Link from "next/link"
 import { Button } from "@components/ui/button"
+import BalanceContainer from "@/components/Balance/BalanceContainer"
+import AddressContainer from "@/components/Address/AddressContainer"
 
 export default function Dashboard() {
     const { privateKey } = usePrivateKeyStore()
@@ -23,9 +25,21 @@ export default function Dashboard() {
     }
 
     return (
-        <section className="max-w-sm mx-auto py-5 px-5 md:px-0 flex flex-col h-dvh">
-            <h1 className="text-2xl font-bold mb-6">Send Transaction</h1>
-            <TransactionForm />
+        <section className="max-w-sm mx-auto py-5 px-5 md:px-0 flex flex-col md:gap-6 h-dvh">
+            <div className="flex flex-col items-center">
+                <small>Your public address</small>
+                <AddressContainer />
+            </div>
+
+            <div className="flex justify-center rounded-3xl border py-8 bg-gray-50 border-gray-300">
+                {/* <h2>Your balance</h2> */}
+                <BalanceContainer />
+            </div>
+
+            <div className="h-full flex flex-col">
+                <h2 className="text-2xl font-bold mb-6">Send Transaction</h2>
+                <TransactionForm />
+            </div>
         </section>
     )
 }
