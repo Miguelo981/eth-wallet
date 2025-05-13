@@ -1,6 +1,6 @@
 import { generateMnemonic, mnemonicToSeedSync } from '@scure/bip39'
 import { HDKey } from '@scure/bip32'
-import { type Account, bytesToHex, createWalletClient, type Hex, http } from 'viem'
+import { type Account, bytesToHex, createWalletClient, createPublicClient, type Hex, http } from 'viem'
 import { privateKeyToAccount } from 'viem/accounts'
 import { SupportedLang } from '@/models/lang'
 import { DEFAULT_ETHEREUM_DERIVATION_INDEX, DEFAULT_SUPPORTED_LANG, ETH_CHAIN, WORD_LIST } from '@/constants'
@@ -33,7 +33,7 @@ const walletActions = () => {
         return privateKeyToAccount(privateKey)
     }
 
-    const createClient = (account: Account) => {
+    const getWalletClient = (account: Account) => {
         const walletClient = createWalletClient({
             account,
             chain: ETH_CHAIN,
@@ -43,12 +43,22 @@ const walletActions = () => {
         return walletClient
     }
 
+    const getPublicClient = () => {
+        const publicClient = createPublicClient({
+            chain: ETH_CHAIN,
+            transport: http(),
+        })
+
+        return publicClient
+    }
+
     return {
         generateNmemonic,
         generateSeed,
         generatePrivateKey,
         getAccount,
-        createClient,
+        getWalletClient,
+        getPublicClient,
     } as const
 }
 

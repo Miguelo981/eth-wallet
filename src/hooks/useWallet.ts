@@ -2,14 +2,15 @@ import { useMemo } from "react"
 import { usePrivateKeyStore } from "@/stores/usePrivateKeyStore"
 import { walletRepository } from "@/repositories/wallet-repository"
 
-export const useWalletClient = () => {
+export const useWallet = () => {
     const { privateKey } = usePrivateKeyStore()
 
     const account = useMemo(() => walletRepository.getAccount(privateKey), [privateKey])
 
-    const publicClient = useMemo(() => walletRepository.createClient(account), [account])
+    const publicClient = useMemo(() => walletRepository.getWalletClient(account), [account])
 
     return {
-        publicClient
+        publicClient,
+        account,
     } as const
 }
